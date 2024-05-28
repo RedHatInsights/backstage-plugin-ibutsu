@@ -1,0 +1,18 @@
+{
+  "extends": "@backstage/cli/config/tsconfig.json",
+  "include": [
+    "packages/*/src",
+    "plugins/*/src",
+    "plugins/*/dev",
+    "plugins/*/migrations",
+    "plugins/*/@types",
+  ],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "dist-types",
+    "rootDir": ".",
+    "noImplicitAny": false
+  },
+}

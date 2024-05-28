@@ -1,0 +1,1 @@
+export { IbutsuComponent  } from './IbutsuComponent';

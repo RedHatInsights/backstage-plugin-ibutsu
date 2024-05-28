@@ -1,0 +1,11 @@
+{
+  "name": "internal.backstage-plugin-ibutsu",
+  "version": "0.1.0",
+  "extensions": [],
+  "registrationMethod": "callback",
+  "baseURL": "auto",
+  "loadScripts": [
+    "internal.backstage-plugin-ibutsu.8f6fb7598b5b0b1c6f44.js"
+  ],
+  "buildHash": "8f6fb7598b5b0b1c6f442696f9fe73ca"
+}

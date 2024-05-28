@@ -1,0 +1,9 @@
+#!/bin/bash
+
+yarn workspace @redhatinsights/backstage-plugin-ibutsu export-dynamic
+cd plugins/ibutsu
+rm *.tgz
+npm pack
+cd ../..
+mv plugins/ibutsu/*.tgz .
+shasum -a 256 *.tgz | awk '{print $1}' | xxd -r -p | base64

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkinternal_backstage_plugin_ibutsu=self.webpackChunkinternal_backstage_plugin_ibutsu||[]).push([[879],{9333:(e,t,n)=>{n.r(t),n.d(t,{EntityIbutsuContent:()=>s,IbutsuPlugin:()=>i});var u=n(9490);const i=(0,u.createPlugin)({id:"ibutsu"}),s=i.provide((0,u.createComponentExtension)({name:"EntityIbutsuContent",component:{lazy:()=>Promise.all([n.e(1078),n.e(6352),n.e(8633),n.e(5478),n.e(484),n.e(7326),n.e(1942),n.e(8391)]).then(n.bind(n,8391)).then((e=>e.IbutsuComponent))}}))}}]);
+//# sourceMappingURL=exposed-PluginRoot.5f4b7c18.chunk.js.map
