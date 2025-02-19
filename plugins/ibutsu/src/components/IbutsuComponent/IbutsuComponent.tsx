@@ -17,8 +17,6 @@ import {
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Pill } from 'evergreen-ui'
 import Stack from '@mui/material/Stack';
-import { useApi, configApiRef } from '@backstage/core-plugin-api';
-import { useEntity } from '@backstage/plugin-catalog-react';
 import { InfoCard } from '@backstage/core-components';
 import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
 
