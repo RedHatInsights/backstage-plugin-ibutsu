@@ -10,8 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Using Node version ${{ matrix.node-version }}
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn test
+      - name: Installing dependencies
+        run: yarn install
+      - name: Running tests
+        run: yarn test
