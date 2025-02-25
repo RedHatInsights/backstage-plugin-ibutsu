@@ -18,7 +18,9 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Pill } from 'evergreen-ui'
 import Stack from '@mui/material/Stack';
 import { InfoCard } from '@backstage/core-components';
-import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
+import { queryHealthData } from '../../common/QueryHealthData';
+import { queryRunsData } from '../../common/QueryRunsData';
+//import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
 
 export function IbutsuComponent() {
     const [resultsPage, setResultsPage] = React.useState<any[]>([]);
@@ -29,7 +31,9 @@ export function IbutsuComponent() {
 
     const title = 'Test Results';
 
-    const { results, infoData, showHealthDataError, showRunsDataError, loading } = queryHealthAndRunsData();
+    const { infoData, showHealthDataError } = queryHealthData();
+    const { results, showRunsDataError, loading } = queryRunsData();
+    //const { infoData, showHealthDataError, results, showRunsDataError, loading } = queryHealthAndRunsData();
 
     // Style configurations for buttons
     const useStylesButton = makeStyles((theme: Theme) =>
