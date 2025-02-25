@@ -53,7 +53,6 @@ export const queryRunsData = () => {
             }
 
             setResults(appRuns.filter(d => d.component === appName()))
-            console.log(data);
         }).catch(error => {
             setShowRunsDataError(true);
             console.error('Error fetching test run data from Ibutsu API:', error);

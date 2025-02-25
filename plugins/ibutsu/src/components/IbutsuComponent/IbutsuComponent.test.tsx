@@ -1,16 +1,11 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { IbutsuComponent } from './IbutsuComponent';
 import { useApi, configApiRef, fetchApiRef } from '@backstage/core-plugin-api';
 
-//import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
 import { queryHealthData } from '../../common/QueryHealthData';
 import { queryRunsData } from '../../common/QueryRunsData';
-
-//jest.mock("../../common/QueryHealthAndRunsData", () => ({
-//    queryHealthAndRunsData: jest.fn()
-//}));
 
 jest.mock("../../common/QueryHealthData", () => ({
     queryHealthData: jest.fn()
