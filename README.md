@@ -48,6 +48,12 @@ variable:
 export NODE_EXTRA_CA_CERTS=/path/to/ca/cert
 ```
 
+## Catalog
+Migrate the `catalog_example` directory to the default `catalog` directory.
+```
+cp -r catalog_example catalog
+```
+
 ## Development
 
 To start the app, run:
