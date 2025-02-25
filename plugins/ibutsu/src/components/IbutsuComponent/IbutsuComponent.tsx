@@ -20,7 +20,6 @@ import Stack from '@mui/material/Stack';
 import { InfoCard } from '@backstage/core-components';
 import { queryHealthData } from '../../common/QueryHealthData';
 import { queryRunsData } from '../../common/QueryRunsData';
-//import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
 
 export function IbutsuComponent() {
     const [resultsPage, setResultsPage] = React.useState<any[]>([]);
@@ -33,7 +32,6 @@ export function IbutsuComponent() {
 
     const { infoData, showHealthDataError } = queryHealthData();
     const { results, showRunsDataError, loading } = queryRunsData();
-    //const { infoData, showHealthDataError, results, showRunsDataError, loading } = queryHealthAndRunsData();
 
     // Style configurations for buttons
     const useStylesButton = makeStyles((theme: Theme) =>
