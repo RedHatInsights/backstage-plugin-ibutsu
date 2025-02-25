@@ -1,0 +1,10 @@
+name: Plugin CI/CD
+run-name: Running build pipeline for Ibutsu plugin
+on: [push]
+jobs:
+  Ibutsu-Pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run plugin tests
+        run: |
+          yarn test
