@@ -4,10 +4,20 @@ import '@testing-library/jest-dom';
 import { IbutsuComponent } from './IbutsuComponent';
 import { useApi, configApiRef, fetchApiRef } from '@backstage/core-plugin-api';
 
-import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
+//import { queryHealthAndRunsData } from '../../common/QueryHealthAndRunsData';
+import { queryHealthData } from '../../common/QueryHealthData';
+import { queryRunsData } from '../../common/QueryRunsData';
 
-jest.mock("../../common/QueryHealthAndRunsData", () => ({
-    queryHealthAndRunsData: jest.fn()
+//jest.mock("../../common/QueryHealthAndRunsData", () => ({
+//    queryHealthAndRunsData: jest.fn()
+//}));
+
+jest.mock("../../common/QueryHealthData", () => ({
+    queryHealthData: jest.fn()
+}));
+
+jest.mock("../../common/QueryRunsData", () => ({
+    queryRunsData: jest.fn()
 }));
 
 jest.mock('@backstage/core-plugin-api', () => ({
@@ -37,10 +47,13 @@ describe('IbutsuComponent', () => {
     });
 
     test('displays loading state initially', () => {
-        (queryHealthAndRunsData as jest.Mock).mockReturnValue({
+        (queryHealthData as jest.Mock).mockReturnValue({
+            infoData: [],
+            showHealthDataError: false
+        });
+
+        (queryRunsData as jest.Mock).mockReturnValue({
             results: [],
-            infoData: null,
-            showHealthDataError: false,
             showRunsDataError: false,
             loading: true
         });
@@ -50,34 +63,34 @@ describe('IbutsuComponent', () => {
     });
 
     test('displays an error message if fetching health data fails', async () => {
-        (queryHealthAndRunsData as jest.Mock).mockReturnValue({
+        (queryHealthData as jest.Mock).mockReturnValue({
+            infoData: [],
+            showHealthDataError: true
+        });
+
+        (queryRunsData as jest.Mock).mockReturnValue({
             results: [],
-            infoData: null,
-            showHealthDataError: true,
             showRunsDataError: false,
             loading: true
         });
 
-
         render(<IbutsuComponent />);
-        await waitFor(() => {
-            expect(screen.getByText(/Error retrieving Ibutsu health data/i)).toBeInTheDocument();
-        });
+        expect(screen.getByText(/Error retrieving Ibutsu health data/i)).toBeInTheDocument();
     });
 
     test('displays an error message if fetching run data fails', async () => {
-        (queryHealthAndRunsData as jest.Mock).mockReturnValue({
+        (queryHealthData as jest.Mock).mockReturnValue({
+            infoData: [],
+            showHealthDataError: false
+        });
+
+        (queryRunsData as jest.Mock).mockReturnValue({
             results: [],
-            infoData: null,
-            showHealthDataError: false,
             showRunsDataError: true,
             loading: true
         });
 
-
         render(<IbutsuComponent />);
-        await waitFor(() => {
-            expect(screen.getByText(/Error retrieving Ibutsu test runs data/i)).toBeInTheDocument();
-        });
+        expect(screen.getByText(/Error retrieving Ibutsu test runs data/i)).toBeInTheDocument();
     });
 });
