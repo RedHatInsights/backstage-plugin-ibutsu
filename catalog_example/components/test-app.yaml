@@ -16,7 +16,7 @@ metadata:
     - test-app
 
   annotations:
-    ibutsu/component-name: "cost_management"
+    ibutsu/component-name: "<----  ADD COMPONENT NAME HERE  ---->"
 spec:
   type: application 
   system: test-app
