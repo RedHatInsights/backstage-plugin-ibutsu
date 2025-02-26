@@ -174,12 +174,6 @@ export function IbutsuComponent() {
         )
     }
 
-    // fetch data from Ibutsu API on load only
-    //useEffect(() => {
-    //    getHealthData()
-    //    getRunsData()
-    //}, [])
-
     // Used for pagination
     useEffect(() => {
         const pageOffset = page * pageSize;
