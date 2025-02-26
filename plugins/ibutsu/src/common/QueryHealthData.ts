@@ -29,7 +29,6 @@ export const queryHealthData = () => {
             return response.json();
         }).then(data => {
             setInfoData(data.frontend);
-            console.log(infoData);
         }).catch(error => {
             setShowHealthDataError(true);
             console.error('error fetching health data from Ibutsu API:', error);
