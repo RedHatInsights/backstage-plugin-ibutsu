@@ -1,0 +1,19 @@
+name: Plugin CI/CD
+run-name: Running build pipeline for Ibutsu plugin
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Using Node version ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Installing dependencies
+        run: yarn install --frozen-lockfile
+      - name: Running tests
+        run: yarn test --coverage --maxWorkers 3
