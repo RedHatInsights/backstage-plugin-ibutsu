@@ -44,18 +44,18 @@ integrations:
     #   token: ${GHE_TOKEN}
 
 proxy:
-  endpoints:
-    '/ibutsu': 
-      target: ${IBUTSU_URL}
-      headers:
-        Authorization: Bearer ${IBUTSU_API_TOKEN}
-
   ### Example for how to add a proxy endpoint for the frontend.
   ### A typical reason to do this is to handle HTTPS and CORS for internal services.
   # endpoints:
   #   '/test':
   #     target: 'https://example.com'
   #     changeOrigin: true
+  '/ibutsu':
+    target: https://ibutsu-api.insights.corp.redhat.com
+    # Allow corporate/self-signed cert (SELF_SIGNED_CERT_IN_CHAIN). Prefer adding corp CA to NODE_EXTRA_CA_CERTS in production.
+    secure: false
+    headers:
+      Authorization: ${IBUTSU_AUTH_TOKEN}
 
 # Reference documentation http://backstage.io/docs/features/techdocs/configuration
 # Note: After experimenting with basic setup, use CI/CD to generate docs
@@ -82,10 +82,17 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, User, Group, Resource, Location, Template, API]
+    - allow: [Component, System, API, Resource, Location]
   locations:
+    # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
-      target: ../../catalog/all.yaml
+      target: ../../examples/entities.yaml
+
+    # Local example template
+    - type: file
+      target: ../../examples/template/template.yaml
+      rules:
+        - allow: [Template]
 
     # Local example organizational data
     - type: file
@@ -102,3 +109,11 @@ catalog:
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme-corp.yaml
     #   rules:
     #     - allow: [User, Group]
+
+kubernetes:
+  # see https://backstage.io/docs/features/kubernetes/configuration for kubernetes configuration options
+
+# see https://backstage.io/docs/permissions/getting-started for more on the permission framework
+permission:
+  # setting this to `false` will disable permissions
+  enabled: true

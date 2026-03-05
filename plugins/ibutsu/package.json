@@ -26,7 +26,8 @@
     "clean": "backstage-cli package clean",
     "prepack": "backstage-cli package prepack",
     "postpack": "backstage-cli package postpack",
-    "export-dynamic": "janus-cli package export-dynamic-plugin"
+    "export-dynamic": "janus-cli package export-dynamic-plugin",
+    "repack": "yarn export-dynamic && yarn pack --prod"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-0",
@@ -45,7 +46,9 @@
     "react-use": "^17.2.4"
   },
   "peerDependencies": {
-    "react": "^16.13.1 || ^17.0.0 || ^18.0.0"
+    "react": "^16.13.1 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.13.1 || ^17.0.0 || ^18.0.0",
+    "react-router-dom": "^6.0.0"
   },
   "devDependencies": {
     "@backstage/cli": "^0.35.3",
@@ -60,6 +63,8 @@
   },
   "files": [
     "dist",
-    "dist-scalprum"
+    "dist-scalprum",
+    "dist-dynamic/*.*",
+    "dist-dynamic/dist/**"
   ]
 }

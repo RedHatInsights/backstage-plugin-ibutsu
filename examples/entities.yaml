@@ -19,6 +19,19 @@ spec:
   system: examples
   providesApis: [example-grpc-api]
 ---
+# Test component for the Ibutsu plugin (service type shows the Ibutsu tab)
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ibutsu-test
+  title: Ibutsu Test
+  description: Test entity for the Ibutsu plugin — use this to view test runs and health in the Ibutsu tab.
+spec:
+  type: service
+  lifecycle: experimental
+  owner: guests
+  system: examples
+---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
 apiVersion: backstage.io/v1alpha1
 kind: API
