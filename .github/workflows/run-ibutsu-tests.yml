@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Installing dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Running tests
         run: yarn test --coverage --maxWorkers 3
